@@ -148,7 +148,7 @@ namespace ValorantCC
                     Utilities.Utils.Log("WS Failed to fetch settings error: " + ex.StackTrace.ToString());
                 }
 
-                request = new RestRequest("https://playerpreferences.riotgames.com/playerPref/v3/getPreference/Ares.PlayerSettings", Method.Get);
+                request = new RestRequest("https://player-preferences-usw2.pp.sgp.pvp.net/playerPref/v3/getPreference/Ares.PlayerSettings", Method.Get);
                 request.AddHeaders(_headers);
                 resp = await (new RestClient().ExecuteAsync(request));
                 if (!resp.IsSuccessful) return new Data();
@@ -195,7 +195,7 @@ namespace ValorantCC
                     Utilities.Utils.Log("WS savePreference Unsuccessfull: " + ex.StackTrace.ToString());
                 }
 
-                request = new RestRequest("https://playerpreferences.riotgames.com/playerPref/v3/savePreference", Method.Put);
+                request = new RestRequest("https://player-preferences-usw2.pp.sgp.pvp.net/playerPref/v3/savePreference", Method.Put);
                 request.AddJsonBody(new { type = "Ares.PlayerSettings", data = Utilities.Utils.Compress(newData) });
                 request.AddHeaders(_headers);
                 response = await (new RestClient().ExecuteAsync(request));
